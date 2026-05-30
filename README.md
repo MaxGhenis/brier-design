@@ -26,10 +26,21 @@ restyles a live site; you bump the tag intentionally when you want consumers to 
 Fonts (Newsreader, IBM Plex Sans/Mono, Instrument Serif) are loaded by each page in `<head>`
 so they can use `preconnect`; the tokens just reference the families.
 
-### Next.js / bundled apps
+### Next.js / Tailwind v4 apps
 
-Import `tokens.css` in your global stylesheet, or map the `:root` block into the Tailwind v4
-`@theme`. Use the same token names so there's one vocabulary across static and bundled apps.
+Install as a git dependency and `@import` the Tailwind theme:
+
+```bash
+bun add github:MaxGhenis/brier-design#v1.1.0
+```
+```css
+@import "tailwindcss";
+@import "brier-design/theme.css";   /* full Clear Horizon palette as @theme */
+```
+
+`theme.css` carries the full palette in Tailwind's `--color-*` / `--font-*` form so it
+generates utilities; static sites use `tokens.css` (plain `:root` vars) instead. Same values,
+two consumption styles.
 
 ## Versioning
 

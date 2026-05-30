@@ -1,0 +1,20 @@
+{
+  "name": "brier-design",
+  "version": "1.1.0",
+  "description": "Brier design system — Clear Horizon tokens and base styles",
+  "license": "MIT",
+  "files": [
+    "tokens.css",
+    "base.css",
+    "theme.css"
+  ],
+  "exports": {
+    "./tokens.css": "./tokens.css",
+    "./base.css": "./base.css",
+    "./theme.css": "./theme.css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MaxGhenis/brier-design.git"
+  }
+}

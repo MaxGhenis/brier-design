@@ -1,0 +1,36 @@
+/* Brier Design — tokens
+ * Clear Horizon palette + type scale. Single source of truth for all Brier properties.
+ * Consume via jsDelivr (version-pinned) or import in bundled apps. */
+:root {
+  /* surfaces */
+  --canvas: #F7FAFC;
+  --paper: #FCFDFE;
+  --section: #EEF4F8;
+
+  /* borders */
+  --border-soft: #D9E4EC;
+  --border-strong: #BED0DB;
+
+  /* text */
+  --text-primary: #14202B;
+  --text-secondary: #415463;
+  --text-tertiary: #6B7C89;
+
+  /* horizon (cool blue) */
+  --horizon-500: #5E97C8;
+  --horizon-700: #356C99;
+
+  /* accent (rose) */
+  --accent: #A94E80;
+  --accent-hover: #8E456A;
+  --accent-subtle: #F6E7F0;
+
+  /* ink */
+  --ink-dark: #0F1A24;
+
+  /* type */
+  --font-display: "Newsreader", Georgia, serif;
+  --font-body: "IBM Plex Sans", -apple-system, sans-serif;
+  --font-editorial: "Instrument Serif", serif;
+  --font-mono: "IBM Plex Mono", monospace;
+}

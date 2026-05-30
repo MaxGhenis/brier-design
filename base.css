@@ -1,0 +1,110 @@
+/* Brier Design — base
+ * Reset, layout, and shared components. Depends on tokens.css. */
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--font-body);
+  color: var(--text-primary);
+  background: var(--canvas);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.wrap { max-width: 760px; margin: 0 auto; padding: 0 24px; }
+
+/* ── Header ── */
+header.site {
+  position: sticky; top: 0; z-index: 50;
+  backdrop-filter: blur(16px);
+  background: rgba(252, 253, 254, 0.85);
+  border-bottom: 1px solid var(--border-soft);
+}
+header.site .wrap { display: flex; align-items: center; justify-content: space-between; padding: 14px 24px; }
+.brand { display: flex; align-items: center; gap: 9px; text-decoration: none; color: var(--text-primary); }
+.brand svg { width: 26px; height: 26px; }
+.brand span { font-family: var(--font-display); font-size: 1.1rem; font-weight: 600; letter-spacing: -0.01em; }
+.brand small { color: var(--text-tertiary); font-weight: 400; }
+nav a { font-size: 0.82rem; color: var(--text-secondary); text-decoration: none; margin-left: 22px; transition: color 0.2s; }
+nav a:hover { color: var(--accent); }
+
+/* ── Hero ── */
+.hero {
+  padding: 96px 0 60px;
+  background:
+    radial-gradient(1100px 460px at 50% -8%, rgba(159, 196, 230, 0.20), transparent 60%),
+    linear-gradient(180deg, #F9FCFE 0%, #F3F8FB 60%, #EEF4F8 100%);
+  border-bottom: 1px solid var(--border-soft);
+}
+.eyebrow {
+  font-family: var(--font-mono); font-size: 0.68rem; letter-spacing: 0.14em;
+  text-transform: uppercase; color: var(--accent); margin-bottom: 18px;
+  animation: fade-up 0.7s ease-out;
+}
+h1 {
+  font-family: var(--font-display); font-weight: 400;
+  font-size: clamp(2.2rem, 5vw, 3.4rem); line-height: 1.1; letter-spacing: -0.025em;
+  margin-bottom: 22px; animation: fade-up 0.8s ease-out 0.05s both;
+}
+.lede {
+  font-size: 1.18rem; color: var(--text-secondary); max-width: 620px;
+  line-height: 1.6; animation: fade-up 0.8s ease-out 0.12s both;
+}
+.lede em { font-family: var(--font-editorial); font-style: italic; color: var(--text-primary); }
+.status {
+  display: inline-flex; align-items: center; gap: 8px; margin-top: 26px; padding: 6px 13px;
+  border: 1px solid var(--border-strong); border-radius: 999px; background: var(--paper);
+  font-family: var(--font-mono); font-size: 0.66rem; letter-spacing: 0.08em; text-transform: uppercase;
+  color: var(--text-tertiary); animation: fade-up 0.8s ease-out 0.2s both;
+}
+.status .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--accent); }
+
+/* ── Sections ── */
+section { padding: 56px 0; }
+section + section { border-top: 1px solid var(--border-soft); }
+h2 { font-family: var(--font-display); font-weight: 500; font-size: 1.5rem; letter-spacing: -0.01em; margin-bottom: 18px; }
+p.body { font-size: 1.02rem; color: var(--text-secondary); margin-bottom: 16px; max-width: 640px; }
+p.body strong { color: var(--text-primary); font-weight: 600; }
+
+/* ── Lineage strip ── */
+.lineage { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; margin-top: 8px; }
+.lineage .step {
+  font-family: var(--font-mono); font-size: 0.78rem; padding: 7px 13px;
+  border: 1px solid var(--border-strong); border-radius: 999px; color: var(--text-tertiary); background: var(--paper);
+}
+.lineage .step.now { color: var(--accent); border-color: var(--accent); background: var(--accent-subtle); font-weight: 500; }
+.lineage .arrow { color: var(--border-strong); font-size: 0.9rem; }
+
+/* ── Cards: programs (institute) + pillars (almanac) ── */
+.programs { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 8px; }
+.pillars { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; margin-top: 8px; }
+@media (max-width: 768px) { .programs, .pillars { grid-template-columns: 1fr; } }
+.program, .pillar {
+  display: block; text-decoration: none; color: inherit;
+  border: 1px solid var(--border-soft); border-radius: 14px; padding: 22px;
+  background: var(--paper); transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s;
+}
+.program:hover { border-color: var(--border-strong); transform: translateY(-2px); box-shadow: 0 10px 30px rgba(20, 32, 43, 0.06); }
+.ptag { font-family: var(--font-mono); font-size: 0.6rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--horizon-700); margin-bottom: 9px; }
+.program h3, .pillar h3 { font-family: var(--font-display); font-size: 1.15rem; font-weight: 500; margin-bottom: 7px; letter-spacing: -0.01em; }
+.program h3 .ext, .pillar h3 .ext { color: var(--accent); font-size: 0.8rem; vertical-align: middle; }
+.program p, .pillar p { font-size: 0.9rem; color: var(--text-secondary); line-height: 1.55; }
+.program.flag { grid-column: 1 / -1; border-color: var(--accent); background: linear-gradient(180deg, #FFFFFF, #FDF6FA); }
+
+/* ── CTA ── */
+.cta {
+  display: inline-flex; align-items: center; gap: 8px; margin-top: 8px;
+  padding: 13px 26px; border-radius: 10px; background: var(--text-primary);
+  color: var(--paper); text-decoration: none; font-size: 0.9rem; font-weight: 500;
+  transition: background 0.2s, transform 0.2s;
+}
+.cta:hover { background: var(--accent); transform: translateY(-1px); }
+
+/* ── Footer ── */
+footer.site { border-top: 1px solid var(--border-soft); padding: 40px 0 64px; color: var(--text-tertiary); font-size: 0.85rem; }
+footer.site a { color: var(--text-secondary); text-decoration: none; }
+footer.site a:hover { color: var(--accent); }
+footer.site .row { display: flex; flex-wrap: wrap; gap: 18px; margin-top: 10px; }
